@@ -43,6 +43,7 @@ def main():
 
     args = vars(parser.parse_args())
 
+    app.config['HOST'] = '0.0.0.0'
     if 'port' in args:  # use port from command line
         app.config['PORT'] = args['port']
     if not args['builtin'] and not args['cherrypy']:
