@@ -29,8 +29,8 @@ def main():
     Start eMonitor application
 
     :argument:
-        -   -t --tornado: use tornado webserver
         -   -b --builtin: use flask webserver (only for test)
+        -   -c --cherrypy: use cherrypy webserver
         -   -p --port: define port for webserver
         -   -d: start in debug mode
     """
@@ -39,7 +39,7 @@ def main():
     parser.add_argument('-c', '--cherrypy', help='use cherrypy webserver', default=None, action='store_true')
     port = app.config.get('PORT')
     parser.add_argument('-p', '--port', help='run webserver on port (default: 8080)', type=int, default=port)
-    parser.add_argument('-d', help='debug mode without restart', default=None)
+    parser.add_argument('-d', help='debug mode without restart', default=None, action='store_true')
 
     args = vars(parser.parse_args())
 
